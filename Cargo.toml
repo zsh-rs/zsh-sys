@@ -1,6 +1,6 @@
 [package]
 name = "zsh-sys"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Cole McAnelly <cole.mcanelly3@gmail.com>"]
 license = "MIT OR Apache-2.0"
 readme = "README.md"
