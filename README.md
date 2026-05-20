@@ -6,7 +6,7 @@ This crate provides low-level FFI bindings to the ZSH API. It allows users to in
 ## Quick Start
 Add `zsh-sys` as your dependency in Cargo.toml
 
-```sh
+```sh,no_run
 cargo add zsh-sys
 ```
 
@@ -20,11 +20,13 @@ use zsh::{Module, Builtin};
 
 Bindings for zsh's bundled modules are split behind feature flags and exposed under namespaced submodules (`boot`, `setup`, `features`, `enables`, `cleanup`, `finish`):
 
-```rust
+```rust,ignore
 // requires the `zle` feature
 use zsh::zle::complist;
 
-unsafe { complist::setup(module) };
+let my_mod = zsh::Module::default();
+
+unsafe { complist::setup(my_mod) };
 ```
 
 Most users should prefer the higher-level [`zsh-module`](https://github.com/zsh-rs/zsh-module) crate, which wraps these bindings in a safe API.
