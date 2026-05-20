@@ -1,7 +1,12 @@
+#[path = "build/mod.rs"]
+mod build;
+
 use std::path::{Path, PathBuf};
 use std::{env, fs, io};
 
 use zsh_src::{ZshSource, resolve};
+
+use crate::build::{MaybeSplitToStubs, WriteToFile};
 
 macro_rules! file_regex {
     ($src:expr, $subdir:expr) => {
@@ -58,6 +63,7 @@ fn main() -> io::Result<()> {
         .allowlist_file(format!(r"{src}/.*?config\.h"))
         .generate()
         .map_err(io::Error::other)?
+        .maybe_split_to_stubs()?
         .write_to_file(out_path.join("bindings.rs"))?;
 
     Ok(())

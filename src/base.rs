@@ -5,6 +5,9 @@
 
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 
+#[cfg(feature = "test-stubs")]
+include!(concat!(env!("OUT_DIR"), "/bindings_stubs.rs"));
+
 #[inline(always)]
 pub const fn param_type(p: u32) -> u32 {
     p & (PM_SCALAR | PM_INTEGER | PM_EFLOAT | PM_FFLOAT | PM_ARRAY | PM_HASHED)

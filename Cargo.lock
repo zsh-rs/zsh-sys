@@ -762,5 +762,7 @@ dependencies = [
  "bindgen",
  "glob",
  "pastey",
+ "quote",
+ "syn",
  "zsh-src",
 ]
