@@ -4,7 +4,7 @@ mod build;
 use std::path::{Path, PathBuf};
 use std::{env, fs, io};
 
-use zsh_src::{ZshSource, resolve};
+use zsh_src::{resolve, ZshSource};
 
 use crate::build::{MaybeSplitToStubs, WriteToFile};
 
@@ -24,11 +24,14 @@ fn main() -> io::Result<()> {
 
     let src = source.display();
 
+    let target = env::var("TARGET").unwrap();
+
     let builder = bindgen::Builder::default()
         .header(wrapper.to_str().ok_or(io::Error::other("impossible"))?)
         .clang_arg(format!("-I{src}"))
         .clang_arg("-DMODULE")
         .clang_arg("-H")
+        .clang_arg(format!("--target={}", target))
         .allowlist_recursively(false)
         .derive_default(true)
         .wrap_unsafe_ops(true);

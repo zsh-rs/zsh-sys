@@ -5,7 +5,7 @@ pub trait WriteToFile {
 
 impl WriteToFile for bindgen::Bindings {
     fn write_to_file<P: AsRef<std::path::Path>>(&self, path: P) -> std::io::Result<()> {
-        bindgen::Bindings::write_to_file(&self, path)
+        bindgen::Bindings::write_to_file(self, path)
     }
 }
 
