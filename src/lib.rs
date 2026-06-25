@@ -10,6 +10,10 @@ mod extensions;
 mod base;
 pub use base::*;
 
+/// The zsh version this crate's bindings were generated/built against.
+pub const ZSH_BUILD_VERSION: &str = env!("ZSH_BUILD_VERSION");
+
+
 #[cfg(feature = "builtins")]
 pub mod builtins;
 

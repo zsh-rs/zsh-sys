@@ -17,7 +17,8 @@ macro_rules! file_regex {
 fn main() -> io::Result<()> {
     let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
 
-    let ZshSource { source, .. } = resolve()?;
+    let ZshSource { source, version } = resolve()?;
+    println!("cargo::rustc-env=ZSH_BUILD_VERSION={version}");
     println!("cargo::rerun-if-changed={}", source.display());
 
     let wrapper = generate_wrapper(&source, &out_path)?;
