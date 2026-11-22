@@ -1,4 +1,4 @@
-use std::ffi::CStr;
+use core::ffi::CStr;
 
 use crate::base::conddef;
 
@@ -25,14 +25,14 @@ impl conddef {
         id: i32,
     ) -> Self {
         Self {
-            next: std::ptr::null_mut(),
+            next: core::ptr::null_mut(),
             name: name.as_ptr() as _,
             flags: 0,
             handler: Some(handler),
             min,
             max,
             condid: id,
-            module: std::ptr::null_mut(),
+            module: core::ptr::null_mut(),
         }
     }
 
@@ -49,14 +49,14 @@ impl conddef {
         id: i32,
     ) -> Self {
         Self {
-            next: std::ptr::null_mut(),
+            next: core::ptr::null_mut(),
             name: name.as_ptr() as _,
             flags: crate::base::CONDF_INFIX as _,
             handler: Some(handler),
             min: 0,
             max: 0,
             condid: id,
-            module: std::ptr::null_mut(),
+            module: core::ptr::null_mut(),
         }
     }
 }

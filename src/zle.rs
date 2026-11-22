@@ -2,6 +2,7 @@
 #[allow(non_upper_case_globals)]
 mod bindings {
     use crate::base::*;
+    use libc::stat;
     include!(concat!(env!("OUT_DIR"), "/zle.rs"));
 }
 

@@ -223,9 +223,9 @@ checksum = "8f42a60cbdf9a97f5d2305f08a87dc4e09308d1276d28c869c684d7777685682"
 
 [[package]]
 name = "libc"
-version = "0.2.186"
+version = "0.2.191"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "68ab91017fe16c622486840e4c83c9a37afeff978bd239b5293d61ece587de66"
+checksum = "65cd87c9a6d60536580b316ad985726104730a5151c99845f2490428ef91240a"
 
 [[package]]
 name = "libloading"
@@ -733,6 +733,7 @@ checksum = "b97154e67e32c85465826e8bcc1c59429aaaf107c1e4a9e53c8d8ccd5eff88d0"
 [[package]]
 name = "zsh-src"
 version = "0.1.1"
+source = "git+https://github.com/zsh-rs/zsh-src.git#c58df3bd5701de43487a94647ae83ae3084856ca"
 dependencies = [
  "directories",
  "file-guard",
@@ -747,6 +748,7 @@ version = "0.2.2"
 dependencies = [
  "bindgen",
  "glob",
+ "libc",
  "pastey",
  "quote",
  "syn",

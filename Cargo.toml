@@ -17,11 +17,12 @@ name = "zsh"
 test-stubs = ["dep:syn", "dep:quote"]
 default = ["all"]
 all = ["zle", "modules", "builtins"]
-zle = ["pastey"]
+zle = ["pastey", "dep:libc"]
 modules = ["pastey"]
 builtins = ["pastey"]
 
 [dependencies]
+libc = { version = "0.2.191", default-features = false, optional = true }
 pastey = { version = "0.2", optional = true }
 
 [build-dependencies]
