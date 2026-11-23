@@ -32,7 +32,8 @@ fn main() -> io::Result<()> {
         .clang_arg("-H")
         .allowlist_recursively(false)
         .derive_default(true)
-        .wrap_unsafe_ops(true);
+        .wrap_unsafe_ops(true)
+        .use_core();
 
     #[cfg(feature = "zle")]
     builder

@@ -1,4 +1,4 @@
-use std::ffi::CStr;
+use core::ffi::CStr;
 
 use crate::base::builtin;
 
@@ -28,7 +28,7 @@ impl builtin {
     ) -> Self {
         Self {
             node: crate::base::hashnode {
-                next: std::ptr::null_mut(),
+                next: core::ptr::null_mut(),
                 nam: name.as_ptr() as _,
                 flags: 0,
             },
@@ -37,7 +37,7 @@ impl builtin {
             maxargs,
             funcid: id,
             optstr: optstr.as_ptr() as _,
-            defopts: std::ptr::null_mut(),
+            defopts: core::ptr::null_mut(),
         }
     }
 }

@@ -1,4 +1,4 @@
-use std::ffi::CStr;
+use core::ffi::CStr;
 
 use crate::base::mathfunc;
 
@@ -25,12 +25,12 @@ impl mathfunc {
         id: i32,
     ) -> Self {
         Self {
-            next: std::ptr::null_mut(),
+            next: core::ptr::null_mut(),
             name: name.as_ptr() as _,
             flags: 0,
             nfunc: Some(handler),
             sfunc: None,
-            module: std::ptr::null_mut(),
+            module: core::ptr::null_mut(),
             minargs,
             maxargs,
             funcid: id,
@@ -52,12 +52,12 @@ impl mathfunc {
         id: i32,
     ) -> Self {
         Self {
-            next: std::ptr::null_mut(),
+            next: core::ptr::null_mut(),
             name: name.as_ptr() as _,
             flags: crate::base::MFF_STR as _,
             nfunc: None,
             sfunc: Some(handler),
-            module: std::ptr::null_mut(),
+            module: core::ptr::null_mut(),
             minargs: 0,
             maxargs: 0,
             funcid: id,
